@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/goofiw/kow-boilerplate.git"
+    "url": "git+ssh://git@github.com/goofiw/jackblack.git"
   },
   "author": "goofiw",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/goofiw/koa-boilerplate/issues"
+    "url": "https://github.com/goofiw/jackblack/issues"
   },
-  "homepage": "https://github.com/goofiw/koa-boilerplate#readme",
+  "homepage": "https://github.com/goofiw/jackblack#readme",
   "dependencies": {
     "jade": "^1.11.0",
     "koa": "^0.21.0",
