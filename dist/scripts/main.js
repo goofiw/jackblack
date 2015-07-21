@@ -1,7 +1,20 @@
 var Card = React.createClass({displayName: "Card",
   render: function() {
     return(
-        React.createElement("div", {className: "card suit rank-2 d"})
+        React.createElement("div", null, 
+          React.createElement("div", {className: "card suit d"}, 
+            React.createElement("span", {className: "value"}, "2")
+          ), 
+          React.createElement("div", {className: "card suit s"}, 
+            React.createElement("span", {className: "value"}, "2")
+          ), 
+          React.createElement("div", {className: "card suit h"}, 
+            React.createElement("span", {className: "value"}, "2")
+          ), 
+          React.createElement("div", {className: "card suit c"}, 
+            React.createElement("span", {className: "value"}, "2")
+          )
+        )
     )
   }
 });

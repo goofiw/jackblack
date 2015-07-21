@@ -29,8 +29,33 @@
   word-spacing: -0.5em;
 }
 
-.rank-2:after {
-  content: "\2666 \A\A \2666";
-  font-size: 1.5em;
+.d:after {
+  content: "\2666";
+  font-size: 3em;
   text-align: center;
+  color: red;
+}
+
+.h:after {
+  content: "\2665";
+  font-size: 3em;
+  text-align: center;
+  color: red;
+}
+
+.s:after {
+  content: "\2660";
+  font-size: 3em;
+  text-align: center;
+}
+
+.c:after {
+  content: "\2663";
+  font-size: 3em;
+  text-align: center;
+}
+.value {
+  display: block;
+  line-height: 1;
+  text-align: left;
 }
