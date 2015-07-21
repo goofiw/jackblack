@@ -1,56 +1,36 @@
-body {
-  background-color: #B7D1EC;
-}
-
-div {
-  background-color: #DFF0D8;
-}
-
-td {
-  min-width: 50%;
-}
-
-ul li {
-  text-align: left;
-}
-
-ul.languages li {
-  padding-top: 5px;
+.card {
+  display: inline-block;
+  width: 3.3em;
+  height: 4.6em;
+  border: 1px solid #666;
+  border-radius: .3em;
+  -moz-border-radius: .3em;
+  -webkit-border-radius: .3em;
+  -khtml-border-radius: .3em;
+  padding: .25em;
+  margin: 0 .5em .5em 0;
   text-align: center;
-  list-style-type: none;
-  font-size: 16px;
+  font-size: 1.2em;
+  font-weight: normal;
+  font-family: Arial, sans-serif;
+  position: relative;
+  background-color: #fff;
+  -moz-box-shadow: .2em .2em .5em #333;
+  -webkit-box-shadow: .2em .2em .5em #333;
+  box-shadow: .2em .2em .5em #333;
 }
-
-.languages-frameworks {
+.suit {
+  display: block;
+  margin-top: -.8em;
   text-align: center;
-  border: 1px solid #B7D1EC;
-  border-radius: 15px;
+  white-space: pre;
+  line-height: 0.9;
+  font-size: 1.3em;
+  word-spacing: -0.5em;
 }
 
-.job-title {
+.rank-2:after {
+  content: "\2666 \A\A \2666";
+  font-size: 1.5em;
   text-align: center;
-}
-
-.job {
-  border-top: 2px solid #B7D1EC;
-}
-
-ul.project-list {
-  display: table;
-  table-layout: fixed;
-}
-
-ul.project-list li {
-  display: table-cell;
-  list-style-type: none;
-}
-
-img.project-image {
-  width: 80%;    
-  margin: 20px;
-  border-radius: 8px
-}
-
-.jumbotron {
-  background-image: url('images/me-on-tusk.jpg') no-repeat center right;
 }

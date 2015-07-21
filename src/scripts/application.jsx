@@ -1,12 +1,12 @@
-var Card = React.createClass({displayName: "Card",
+var Card = React.createClass({
   render: function() {
     return(
-        React.createElement("div", {className: "card suit rank-2 d"})
+        <div className='card suit rank-2 d'></div>
     )
   }
 });
 
-var Game = React.createClass({displayName: "Game",
+var Game = React.createClass({
   getInitialState: function(){
     return {
     deck: this.createDeck()
@@ -26,15 +26,15 @@ var Game = React.createClass({displayName: "Game",
   },
   render: function(){
     return (
-        React.createElement("div", {id: "game"}, 
-          React.createElement("div", null, " Testing ", this.state.deck, " "), 
-          React.createElement(Card, null)
-        )
+        <div id='game'>
+          <div> Testing {this.state.deck} </div>
+          <Card />
+        </div>
     );
   }
 });
 
 React.render(
-  React.createElement(Game, null),
+  <Game />,
   document.getElementById('container')
 );

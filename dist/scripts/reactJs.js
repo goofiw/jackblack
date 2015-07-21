@@ -1,10 +1,3 @@
-var Card = React.createClass({displayName: "Card",
-  render: function() {
-    return(
-        React.createElement("div", {className: "card suit rank-2 d"})
-    )
-  }
-});
 
 var Game = React.createClass({displayName: "Game",
   getInitialState: function(){
@@ -21,15 +14,11 @@ var Game = React.createClass({displayName: "Game",
       }
       return suitSet;
     });
-    newDeck = [].concat.apply([], newDeck);
-    return newDeck;
+    console.log(newDeck);
   },
   render: function(){
     return (
-        React.createElement("div", {id: "game"}, 
-          React.createElement("div", null, " Testing ", this.state.deck, " "), 
-          React.createElement(Card, null)
-        )
+        React.createElement("div", null, " ", this.deck, " ")
     );
   }
 });

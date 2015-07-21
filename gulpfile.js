@@ -12,6 +12,7 @@ var gulp = require('gulp'),
     livereload = require('gulp-livereload'),
     del = require('del'),
     nodemon = require('gulp-nodemon'),
+    react = require('gulp-react'),
     bower = require('gulp-bower');
 
 var config = {
@@ -40,6 +41,20 @@ gulp.task('scripts', function() {
     .pipe(notify({ message: 'Scripts task complete' }));
 });
 
+gulp.task('jsx', function(){
+  return gulp.src('src/scripts/**/*.jsx')
+    .pipe(react())
+    .on('error', function(e) {
+      console.error(e.message + '\n in ' + e.fileName)
+    })
+    .pipe(concat('main.js'))
+    .pipe(gulp.dest('dist/scripts'))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(uglify())
+    .pipe(gulp.dest('dist/scripts'))
+    .pipe(notify({message: 'JSX complete'}));
+});
+
 gulp.task('images', function() {
   return gulp.src('src/images/**/*')
     .pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })))
@@ -61,6 +76,9 @@ gulp.task('watch', function() {
 
   //watch .js files
   gulp.watch('src/scripts/**/*.js', ['scripts']);
+
+  //watch .jsx files
+  gulp.watch('src/scripts/**/*.jsx', ['jsx']);
 
   //watch image files
   gulp.watch('src/images/**/*', ['images']);
