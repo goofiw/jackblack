@@ -26,15 +26,24 @@ var Game = React.createClass({
     };
   },
   createDeck: function(){
-    var suitSet = [], newDeck;
+    var suitSet = {}, newDeck;
     var suits = ['s', 'd', 'h', 'c'];
-    newDeck = suits.map(function(suit) {
+    newDeck = suits.reduce(function(previous, suit) {
       for(var i = 0; i < 14; i ++){
-        suitSet.push(suit + i);  
+        if( i == 11) {
+          suitSet[suit.concat('J')] = i;  
+        } else if ( i === 12){
+          suitSet[suit.concat('Q')] = i;
+        } else if (i === 13){
+          suitSet[suit.concat('K')] = i;
+        } else if (i === 1) {
+          suitSet[suit.concat('A')] = i;
+        } else {
+          suitSet[suit.concat(i)] = i;  
+        }
       }
       return suitSet;
     });
-    newDeck = [].concat.apply([], newDeck);
     return newDeck;
   },
   render: function(){
