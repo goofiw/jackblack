@@ -1,20 +1,24 @@
 var Card = React.createClass({
   render: function() {
+    console.log(this.props.deck);
+    var allCards = [];
+    for (var key in this.props.deck) {
+      if(this.props.deck.hasOwnProperty(key)){
+        var suit, rank;
+        suit = key[0];
+        rank = key.slice(1);
+        suitClass = 'card suit ' + suit;
+        allCards.push(
+            <div className={suitClass}>
+              <span className='value'>{rank}</span>
+            </div>
+            );
+      }
+    }
     return(
-        <div>
-          <div className='card suit d'>
-            <span className='value'>2</span>
-          </div>
-          <div className='card suit s'>
-            <span className='value'>2</span>
-          </div>
-          <div className='card suit h'>
-            <span className='value'>2</span>
-          </div>
-          <div className='card suit c'>
-            <span className='value'>2</span>
-          </div>
-        </div>
+      <div>
+        {allCards}
+      </div>
     )
   }
 });
@@ -28,11 +32,14 @@ var Game = React.createClass({
   createDeck: function(){
     var suitSet = {}, newDeck;
     var suits = ['s', 'd', 'h', 'c'];
-    newDeck = suits.reduce(function(previous, suit) {
-      for(var i = 0; i < 14; i ++){
+    //reduce was skipping over spades for some reason
+    //Creats an object that holds the rendering info in the key
+    //and the numerical value as the value
+    suits.forEach(function(suit) {
+      for(var i = 1; i < 14; i ++){
         if( i == 11) {
           suitSet[suit.concat('J')] = i;  
-        } else if ( i === 12){
+        } else if (i === 12){
           suitSet[suit.concat('Q')] = i;
         } else if (i === 13){
           suitSet[suit.concat('K')] = i;
@@ -42,15 +49,14 @@ var Game = React.createClass({
           suitSet[suit.concat(i)] = i;  
         }
       }
-      return suitSet;
     });
-    return newDeck;
+    return suitSet;
   },
   render: function(){
     return (
         <div id='game'>
           <div> Testing {this.state.deck} </div>
-          <Card />
+          <Card deck={this.state.deck}/>
         </div>
     );
   }
