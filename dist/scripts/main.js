@@ -7,10 +7,12 @@ var Card = React.createClass({displayName: "Card",
         var suit, rank;
         suit = key[0];
         rank = key.slice(1);
-        suitClass = 'card suit ' + suit;
+        suitClass = 'card suit';
         allCards.push(
             React.createElement("div", {className: suitClass}, 
-              React.createElement("span", {className: "value"}, rank)
+              React.createElement("span", {className: "value"}, rank), 
+              React.createElement("span", {className: suit}), 
+              React.createElement("span", {className: "value inverted"}, rank)
             )
             );
       }

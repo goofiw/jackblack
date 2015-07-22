@@ -31,27 +31,27 @@
 
 .d:after {
   content: "\2666";
-  font-size: 3em;
+  font-size: 2.3em;
   text-align: center;
   color: red;
 }
 
 .h:after {
   content: "\2665";
-  font-size: 3em;
+  font-size: 2.3em;
   text-align: center;
   color: red;
 }
 
 .s:after {
   content: "\2660";
-  font-size: 3em;
+  font-size: 2.3em;
   text-align: center;
 }
 
 .c:after {
   content: "\2663";
-  font-size: 3em;
+  font-size: 2.3em;
   text-align: center;
 }
 .value {
@@ -59,3 +59,9 @@
   line-height: 1;
   text-align: left;
 }
+
+.inverted{
+  transform: scaleY(-1) scaleX(-1); 
+
+}
+
