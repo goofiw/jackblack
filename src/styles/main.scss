@@ -19,15 +19,36 @@
   -webkit-box-shadow: .2em .2em .5em #333;
   box-shadow: .2em .2em .5em #333;
 }
+
+
+div.dealer > div.hand{
+  margin: 25% 50%;  
+}
+
+div.player > div.hand{
+  margin: 110% 50%;  
+}
+
+#deck {
+  display: inline;    
+  float: left;
+  background-color: #000000;
+  position: static;
+}
+
 .suit {
   display: block;
-  margin-top: -3.6em;
+  margin-top: -6.4em;
   text-align: center;
   white-space: pre;
   line-height: 0.9;
   font-size: 1.3em;
   word-spacing: -0.5em;
 }
+
+div.dealer > div.hand > div.suit {
+  margin-top: -4em;
+}  
 
 .board {
   background-color: green;
@@ -40,7 +61,7 @@
 
 .dealer {
   height: 40%;
-  width: 33%;
+  width: 50%;
   margin: 5% auto;
   border: .25em solid #fff;
   padding: .5em;
@@ -89,4 +110,6 @@
   transform: scaleY(-1) scaleX(-1); 
 
 }
-
+#game > div > div.dealer > div.hand > div:nth-child(1) {
+  background-color: #000000;
+}
