@@ -1,6 +1,47 @@
+var Board = React.createClass({
+  getInitialState: function(){
+    return {
+        dealerHand: [],
+        playerHand: []
+        }
+  },
+  render: function(){
+    var deck = this.props.deck;
+    this.state.dealerHand.concat(deck.pop());
+    this.state.dealerHand.concat(deck.pop());
+    this.state.playerHand.concat(deck.pop());
+    this.state.playerHand.concat(deck.pop());
+    return (
+        <div className="board">
+          <Dealer hand={this.state.dealerHand}/>
+          <Player hand={this.state.playerHand}/>
+        </div>
+        );
+  }
+});
+
+var Dealer = React.createClass({
+  render: function(){
+    return (
+        <div className="dealer">
+          <Card cards={this.props.hand}/>
+        </div>
+        );
+  }
+});
+
+var Player = React.createClass({
+  render: function(){
+    return (
+        <div className="player">
+        </div>
+        );
+  }
+});
+
 var Card = React.createClass({
   render: function() {
-    console.log(this.props.deck);
+    console.log(this.props.cards);
     var allCards = [];
     for (var key in this.props.deck) {
       if(this.props.deck.hasOwnProperty(key)){
@@ -40,13 +81,13 @@ var Game = React.createClass({
     suits.forEach(function(suit) {
       for(var i = 1; i < 14; i ++){
         if( i == 11) {
-          suitSet[suit.concat('J')] = i;  
+          suitSet[suit.concat('J')] = 10;  
         } else if (i === 12){
-          suitSet[suit.concat('Q')] = i;
+          suitSet[suit.concat('Q')] = 10;
         } else if (i === 13){
-          suitSet[suit.concat('K')] = i;
+          suitSet[suit.concat('K')] = 10;
         } else if (i === 1) {
-          suitSet[suit.concat('A')] = i;
+          suitSet[suit.concat('A')] = 11;
         } else {
           suitSet[suit.concat(i)] = i;  
         }
@@ -57,8 +98,7 @@ var Game = React.createClass({
   render: function(){
     return (
         <div id='game'>
-          <div> Testing {this.state.deck} </div>
-          <Card deck={this.state.deck}/>
+          <Board deck={this.state.deck}/>
         </div>
     );
   }

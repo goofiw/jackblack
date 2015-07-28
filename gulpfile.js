@@ -90,7 +90,7 @@ gulp.task('watch', function() {
 
 gulp.task('start', function() {
   nodemon({ script: 'index.js',
-    ext: 'js jade html',
+    ext: 'js jade html jsx',
     env: { 'NODE_ENV': 'development' },
     execMap: { js:'node --harmony' }
   });

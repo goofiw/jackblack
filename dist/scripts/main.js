@@ -1,6 +1,47 @@
+var Board = React.createClass({displayName: "Board",
+  getInitialState: function(){
+    return {
+        dealerHand: [],
+        playerHand: []
+        }
+  },
+  render: function(){
+    var deck = this.props.deck;
+    this.state.dealerHand.concat(deck.pop());
+    this.state.dealerHand.concat(deck.pop());
+    this.state.playerHand.concat(deck.pop());
+    this.state.playerHand.concat(deck.pop());
+    return (
+        React.createElement("div", {className: "board"}, 
+          React.createElement(Dealer, {hand: this.state.dealerHand}), 
+          React.createElement(Player, {hand: this.state.playerHand})
+        )
+        );
+  }
+});
+
+var Dealer = React.createClass({displayName: "Dealer",
+  render: function(){
+    return (
+        React.createElement("div", {className: "dealer"}, 
+          React.createElement(Card, {cards: this.props.hand})
+        )
+        );
+  }
+});
+
+var Player = React.createClass({displayName: "Player",
+  render: function(){
+    return (
+        React.createElement("div", {className: "player"}
+        )
+        );
+  }
+});
+
 var Card = React.createClass({displayName: "Card",
   render: function() {
-    console.log(this.props.deck);
+    console.log(this.props.cards);
     var allCards = [];
     for (var key in this.props.deck) {
       if(this.props.deck.hasOwnProperty(key)){
@@ -57,8 +98,7 @@ var Game = React.createClass({displayName: "Game",
   render: function(){
     return (
         React.createElement("div", {id: "game"}, 
-          React.createElement("div", null, " Testing ", this.state.deck, " "), 
-          React.createElement(Card, {deck: this.state.deck})
+          React.createElement(Board, {deck: this.state.deck})
         )
     );
   }

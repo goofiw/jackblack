@@ -21,12 +21,37 @@
 }
 .suit {
   display: block;
-  margin-top: -.8em;
+  margin-top: -3.6em;
   text-align: center;
   white-space: pre;
   line-height: 0.9;
   font-size: 1.3em;
   word-spacing: -0.5em;
+}
+
+.board {
+  background-color: green;
+  height: 40em;
+  width: 50em;
+  border-radius: .5em;
+  border: 1.5em solid #670A0A;
+  margin: 1em 1em 1em 1em;
+}
+
+.dealer {
+  height: 40%;
+  width: 33%;
+  margin: 5% auto;
+  border: .25em solid #fff;
+  padding: .5em;
+}
+
+.player {
+  height: 40%;
+  width: 33%;
+  margin: 5% auto;
+  border: .25em solid #fff;
+  padding: .5em;
 }
 
 .d:after {
